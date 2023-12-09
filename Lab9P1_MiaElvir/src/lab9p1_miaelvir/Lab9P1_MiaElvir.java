@@ -28,6 +28,7 @@ public class Lab9P1_MiaElvir {
                 }
                 
                 Gusanito gusan = new Gusanito(dim_x, dim_y);
+                //El gusano, el gusano, no puede caminar porque le faltaaaan, porque le faltan muchas patas para caminar
                 char [][] mat = gusan.getTablero(); 
                 String pp = gusan.matriz(mat); 
                 String elec1 = JOptionPane.showInputDialog(null, "Mapa\n"+pp+"\n1. Ingresar Instruccion\n2.Ejecutar instrucciones");
