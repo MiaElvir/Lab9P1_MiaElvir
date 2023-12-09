@@ -30,22 +30,31 @@ public class Lab9P1_MiaElvir {
                 Gusanito gusan = new Gusanito(dim_x, dim_y);
                 char [][] mat = gusan.getTablero(); 
                 String pp = gusan.matriz(mat); 
-                String elec1 = JOptionPane.showInputDialog(null, pp+"\n1. Ingresar Instruccion\n2.Ejecutar instrucciones");
+                String elec1 = JOptionPane.showInputDialog(null, "Mapa\n"+pp+"\n1. Ingresar Instruccion\n2.Ejecutar instrucciones");
                 int elec_int = Integer.parseInt(elec1);
-                switch (elec_int){
-                    case 1: 
-                        while (elec_int == 1){
-                            String instruc = JOptionPane.showInputDialog(null, pp+"\nIngrese la instruccion de la forma magnitudDireccion (ej.2UP)"); 
-                            gusan.getInsrucciones().add(instruc); 
-                            elec1 = JOptionPane.showInputDialog(null, pp+"\n1. Ingresar Instruccion\n2.Ejecutar instrucciones");
-                            elec_int = Integer.parseInt(elec1);
-                            
-                        }
-                        break; 
-                    
-                
+                while (elec_int == 1){
+                    String instruc = JOptionPane.showInputDialog(null, "Mapa\n"+pp+"\nIngrese la instruccion de la forma magnitudDireccion (ej.2UP)"); 
+                    gusan.getInsrucciones().add(instruc); 
+                    elec1 = JOptionPane.showInputDialog(null, pp+"\n1. Ingresar Instruccion\n2.Ejecutar instrucciones");
+                    elec_int = Integer.parseInt(elec1);  
                 }
-                break; 
+                if (elec_int == 2){
+                    int cont = 0; 
+                    int paso = Integer.parseInt(JOptionPane.showInputDialog(null, gusan.MostarPaso(cont)+"\n1.Ver siguiente paso\n" +
+"//                            + \n2.Ver paso anterior\n3.Seleccionar Paso\n4. Volver al Menu"));
+                    
+//                    String paso1 = JOptionPane.showInputDialog(null, "Mapa\n"+pp+"\n1.Ver siguiente paso"
+//                            + "\n2.Ver paso anterior\n3.Seleccionar Paso\n4. Volver al Menu"); 
+//                    int paso = Integer.parseInt(paso1); 
+                    
+                    
+                    
+                    
+                    //llamar la funcion mostrar paso 
+                    
+                    
+                }
+                 
             
         }
         

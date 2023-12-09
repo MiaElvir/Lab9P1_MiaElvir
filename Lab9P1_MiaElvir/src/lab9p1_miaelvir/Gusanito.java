@@ -44,7 +44,7 @@ public class Gusanito {
         
         
         //asignacion del gusano y la manzana
-        System.out.println(posx_g+" "+posy_g);
+        
         tablero [posy_g][posx_g] = 'S'; 
         tablero [posy_m][posx_m] = 'ó'; 
         
@@ -170,45 +170,47 @@ public class Gusanito {
  
  public String MostarPaso(int paso){
      String ret = ""; 
-     if (paso == 0){
-         //si un tomate con capa y espada es un supertomate, ¿que es una papa con capa y espada? 
-         String ins = insrucciones.get(0); 
-         int n = Integer.parseInt(ins.substring(0, ins.length() - 2)); 
-         String inst = ins.substring(1, 2); 
-         //posx_g y posy_g
-         //modificacion 
-         if (inst.equalsIgnoreCase("UP")){
+     
+      //String ins = insrucciones.get(paso);
+    for (int i = 0; i == paso; i++) {
+        String ins = insrucciones.get(i);
+        int n = Integer.parseInt(ins.substring(0, ins.length() - 2)); 
+        String inst = ins.substring(1, 2); 
+        if (inst.equalsIgnoreCase("UP")){
             posy_g -= n; 
-         }else if(inst.equalsIgnoreCase("DN")){
+        }else if(inst.equalsIgnoreCase("DN")){
             posy_g += n;  
-         }else if(inst.equalsIgnoreCase("RT")){
+        }else if(inst.equalsIgnoreCase("RT")){
             posx_g += n; 
-         }else if (inst.equalsIgnoreCase("LT")){
+        }else if (inst.equalsIgnoreCase("LT")){
             posx_g -= n; 
-         }
-         
-         //{}{}
-         String mensaje; 
-         if (tablero[posy_g][posx_g] == 'ó'){
+        }
+        //** leer : si un tomate con capa y espada es un supertomate, ¿que es una papa con capa y espada? 
+    }
+    String mensaje = ""; 
+    if (tablero[posy_g][posx_g] == 'ó'){
             mensaje = "Encontraste la Manzana"; 
          }else if(tablero[posy_g][posx_g] == '#'){
              mensaje = "Chocaste"; 
          }else if(posy_g < 0 || posy_g > tablero.length-1 || posx_g < 0 || posx_g > tablero[0].length-1){
              mensaje = "Te saliste del tablero"; 
          }
-         //como se llama un perro que tiene fiebre?
-         tablero[posy_g][posx_g] = 'S'; 
-         
-         for (int i = 0; i < tablero.length; i++) {
-             for (int j = 0; j < tablero[i].length; j++) {
-                 ret += "["+tablero[i][j]+"] "; 
-             }
-             ret += "\n"; 
+    tablero[posy_g][posx_g] = 'S'; 
+    ret += "Mostrando: "+paso+"\n"; 
+    ret += mensaje;  
+     for (int i = 0; i < tablero.length; i++) {
+         for (int j = 0; j < tablero[i].length; j++) {
+             ret += "["+tablero[i][j]+"] "; 
          }
-     }else if(paso == 1){
-         
+         ret += "\n"; 
      }
-     return ret; 
+    
+      
+     //retorna todo el texto qeu ira en el ese menos las opciones
+     //leer *** como se llama un perro que tiene fiebre?
+
+
+    return ret; 
  }
     
     
