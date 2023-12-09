@@ -170,12 +170,14 @@ public class Gusanito {
  
  public String MostarPaso(int paso){
      String ret = ""; 
+     int b = posx_g; 
+     int a = posy_g; 
      
       //String ins = insrucciones.get(paso);
     for (int i = 0; i == paso; i++) {
         String ins = insrucciones.get(i);
         int n = Integer.parseInt(ins.substring(0, ins.length() - 2)); 
-        String inst = ins.substring(1, 2); 
+        String inst = ins.substring(1, ins.length()); 
         if (inst.equalsIgnoreCase("UP")){
             posy_g -= n; 
         }else if(inst.equalsIgnoreCase("DN")){
@@ -189,12 +191,13 @@ public class Gusanito {
     }
     String mensaje = ""; 
     if (tablero[posy_g][posx_g] == 'ó'){
-            mensaje = "Encontraste la Manzana"; 
+            mensaje = "Encontraste la Manzana\n"; 
          }else if(tablero[posy_g][posx_g] == '#'){
-             mensaje = "Chocaste"; 
+             mensaje = "Chocaste\n"; 
          }else if(posy_g < 0 || posy_g > tablero.length-1 || posx_g < 0 || posx_g > tablero[0].length-1){
-             mensaje = "Te saliste del tablero"; 
+             mensaje = "Te saliste del tablero\n"; 
          }
+    tablero[b][a] = ' '; 
     tablero[posx_g][posy_g] = 'S'; 
     ret += "Mostrando: "+paso+"\n"; 
     ret += mensaje;  
