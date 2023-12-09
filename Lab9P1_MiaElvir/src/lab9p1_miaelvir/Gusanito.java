@@ -195,7 +195,7 @@ public class Gusanito {
          }else if(posy_g < 0 || posy_g > tablero.length-1 || posx_g < 0 || posx_g > tablero[0].length-1){
              mensaje = "Te saliste del tablero"; 
          }
-    tablero[posy_g][posx_g] = 'S'; 
+    tablero[posx_g][posy_g] = 'S'; 
     ret += "Mostrando: "+paso+"\n"; 
     ret += mensaje;  
      for (int i = 0; i < tablero.length; i++) {

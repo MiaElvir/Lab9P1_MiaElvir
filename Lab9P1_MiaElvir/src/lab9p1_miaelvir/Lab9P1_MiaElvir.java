@@ -40,9 +40,36 @@ public class Lab9P1_MiaElvir {
                 }
                 if (elec_int == 2){
                     int cont = 0; 
-                    int paso = Integer.parseInt(JOptionPane.showInputDialog(null, gusan.MostarPaso(cont)+"\n1.Ver siguiente paso\n" +
-"//                            + \n2.Ver paso anterior\n3.Seleccionar Paso\n4. Volver al Menu"));
-                    
+                    int p = 0; 
+                    while (p != 4){
+                        int paso = Integer.parseInt(JOptionPane.showInputDialog(null, gusan.MostarPaso(cont)+"\n1.Ver siguiente paso\n" +"2.Ver paso anterior\n3.Seleccionar Paso\n4. Volver al Menu"));
+                        switch(paso){
+                            case 1: 
+                                cont++; 
+                                p = 1; 
+                                break; 
+
+                            case 2: 
+                                cont--; 
+                                p = 2; 
+                                break; 
+
+                            case 3: 
+                                int paso_user = Integer.parseInt(JOptionPane.showInputDialog(null,"Que paso desea ver: "));
+                                if (paso_user > gusan.insrucciones.size()){
+                                    JOptionPane.showMessageDialog(null, "No es un paso valido");
+                                }else{
+                                    cont = paso_user; 
+                                }
+                                p = 3; 
+                                break; 
+
+                            case 4: 
+                                boton = JOptionPane.showOptionDialog(null, "Lab9P1 - Q4.2023\nMia Elvir", "Menu",JOptionPane.INFORMATION_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]); 
+                                p = 4; 
+                                break; 
+                        }
+                    }
 //                    String paso1 = JOptionPane.showInputDialog(null, "Mapa\n"+pp+"\n1.Ver siguiente paso"
 //                            + "\n2.Ver paso anterior\n3.Seleccionar Paso\n4. Volver al Menu"); 
 //                    int paso = Integer.parseInt(paso1); 
